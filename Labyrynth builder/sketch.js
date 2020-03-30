@@ -11,8 +11,8 @@ function setup() {
   createCanvas(x, y);
   grid=new Grid(x,y,10);
   document.getElementById("button").addEventListener("click",reset);
-  x = round(x/2)
-  y = round(y/2)
+  x = round(x/2);
+  y = round(y/2);
   buildersTeam.push(new LabBuilder(grid.tiles[x][y],null,pool));
   buildersTeam.push(new LabBuilder(grid.tiles[x][y],null,pool));
   
