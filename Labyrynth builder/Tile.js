@@ -1,5 +1,6 @@
 class Tile{
   constructor(x,y,size){
+    
     this.x=x;
     this.y=y
     this.size=size;
@@ -10,6 +11,7 @@ class Tile{
                        "1":false}
     }
     show(){
+      stroke(2);
       var size=this.size;
       var x =this.x*size;
       var y=this.y*size;
@@ -19,5 +21,12 @@ class Tile{
       if(!this.connections["1"])line(x,y,x,y+size);
                
     }
-    
+    getPossibleNeighbours(){
+      var poss=[];
+      for(var i in this.connections){
+        var tile= this.connections[i];
+        if(tile)poss.push(tile);
+      }
+      return poss;
+    }
 }

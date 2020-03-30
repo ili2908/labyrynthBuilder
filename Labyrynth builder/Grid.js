@@ -1,9 +1,11 @@
 class Grid{
-  constructor(window_x,window_y,size){
+  constructor(window_x,window_y,size,x_offset,y_offset){
    this.tiles=[];
    this.window_x=window_x;
    this.window_y=window_y;
    this.size=size;
+   this.x=round(window_x/size);
+   this.y=round(window_y/size);
    for(var i = 0;i<round(window_x/size);i++){
      this.tiles.push([])
      for(var j = 0;j<round(window_y/size);j++){
@@ -29,8 +31,10 @@ class Grid{
   checkAndPush(x,y,n,direction,pool){
     
     if(this.tiles[x]&&this.tiles[x][y]&&!this.inPool(this.tiles[x][y],pool)){
-      n.push({tile:this.tiles[x][y],direction:direction});
+      n.push({tile:this.tiles[x][y],direction:direction,die:true});
     }
+             
+    
     
   }
   neighbours(tile,pool){
