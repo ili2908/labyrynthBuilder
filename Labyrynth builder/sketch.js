@@ -11,8 +11,10 @@ function setup() {
   createCanvas(x, y);
   grid=new Grid(x,y,10);
   document.getElementById("button").addEventListener("click",reset);
-  buildersTeam.push(new LabBuilder(grid.tiles[20][20],null,pool));
-  buildersTeam.push(new LabBuilder(grid.tiles[20][20],null,pool));
+  x = round(x/2)
+  y = round(y/2)
+  buildersTeam.push(new LabBuilder(grid.tiles[x][y],null,pool));
+  buildersTeam.push(new LabBuilder(grid.tiles[x][y],null,pool));
   
   //set your
   frameRate(30);
