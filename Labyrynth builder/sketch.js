@@ -3,12 +3,13 @@ var buildersTeam=[];
 var pool=[];
 var isBuild=false;
 var walkers=[];
-
+var x=400;
+var y=400;
 
 function setup() {
   
-  createCanvas(400, 400);
-  grid=new Grid(400,400,10);
+  createCanvas(x, y);
+  grid=new Grid(x,y,10);
   document.getElementById("button").addEventListener("click",reset);
   buildersTeam.push(new LabBuilder(grid.tiles[20][20],null,pool));
   buildersTeam.push(new LabBuilder(grid.tiles[20][20],null,pool));
@@ -22,7 +23,9 @@ function reset(){
   pool=[];
   isBuild=false;
   walkers=[];
-  
+  x=document.getElementById("x").value*10;
+ 
+  y=document.getElementById("y").value*10;
   setup();
 }
 
