@@ -6,18 +6,17 @@ class LabBuilder{
     }
     LabBuilder.pool.push(cur_vertex);
     pool.push(cur_vertex);
-    this.currentTile=cur_vertex;
-    this.currentTile.previous=previous_vertex;
+    this.current_tile=cur_vertex;
+    this.current_tile.previous=previous_vertex;
   }
   show(){
-   noStroke();
-   fill(color(10,10,10));
-    var x =this.currentTile.x;
-    var y =this.currentTile.y;
-    var s =this.currentTile.size;
+    noStroke();
+    fill(33);
+    var x =this.current_tile.x;
+    var y =this.current_tile.y;
+    var s =this.current_tile.size;
     rect(x*s,y*s,s,s);
-  }  
-  
+  }
   umove(pool,grid){
     var local_pool= grid.neighbours(this.current_tile,pool);
     if(local_pool.length==0)return{local:[]}

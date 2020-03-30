@@ -13,7 +13,7 @@ function setup() {
   buildersTeam.push(new LabBuilder(grid.tiles[20][20],null,pool));
   buildersTeam.push(new LabBuilder(grid.tiles[20][20],null,pool));
   
-  
+  //set your
   frameRate(30);
 }
 function reset(){
@@ -35,25 +35,32 @@ function draw() {
   
   grid.show();
   
+     
+    
   for(var i = 0;i<buildersTeam.length;i++){
-    if(!(buildersTeam[i].move(pool,grid,buildersTeam)))    {buildersTeam.splice(i,1)}
-  }for(i = 0;i<buildersTeam.length;i++){
+    if(!(buildersTeam[i]
+          .move(pool,grid,buildersTeam))){
+    buildersTeam.splice(i,1);}
+  
+  }
+  for(i = 0;i<buildersTeam.length;i++){
+    //comment it if you don`t want to see builders
     buildersTeam[i].show();
   }
   isBuild=buildersTeam.length==0;
   if(isBuild){
-    if(!walker){
-       walker=new BetterWalker(grid);
-       walker2 =new BadWalker(grid);
+    if(walkers.length==0){
+      //it will take some time for them  to spawn
+       walkers.push(new BetterWalker(grid));
+       walkers.push(new BadWalker(grid));
+       walkers.push(new YourWalker(grid));
+       
        
     }
-     walker.show();
-     walker.move();
-     walker2.show();
-     walker2.move();
+    for(var walker of walkers){
+      walker.show();
+      walker.move();
+    }
     
   }
-  
- 
-  
 }

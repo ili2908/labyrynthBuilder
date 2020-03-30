@@ -2,6 +2,7 @@ class BetterWalker extends BadWalker{
  constructor(labyrynth){
    super(labyrynth);
    this.color=color(255,0,0);
+   
  }
   
   move(){

@@ -1,6 +1,6 @@
 class Walker{
   constructor(labyrynth){
-    this.labyrynth=labyrynth.tiles;
+    this.labyrynth=labyrynth;
     this.currentTile=labyrynth.tiles[0][0];
     this.winner=false;
     this.tgt=labyrynth.tiles[labyrynth.x-1][labyrynth.y-1];
@@ -15,11 +15,17 @@ class Walker{
   }
   show(){
   noStroke();
-   fill(this.color);
+  fill(this.color);
     var x =this.currentTile.x;
     var y =this.currentTile.y;
     var s =this.currentTile.size;
     rect(x*s,y*s,s,s);
+  }
+  alreadyWon(){
+    if(this.currentTile==this.tgt){
+      this.winner=true;
+      return true;
+    }
   }
   
 }
